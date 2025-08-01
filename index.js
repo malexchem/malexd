@@ -4,8 +4,17 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
 const authRoutes = require('./routes/auth');
-
+const sneepRoutes = require('./routes/sneep');
 const app = express();
+
+const ffmpeg = require('fluent-ffmpeg');
+const path = require('path');
+
+// Set the path to ffmpeg.exe
+ffmpeg.setFfmpegPath(path.join(__dirname, 'ffmpeg', 'ffmpeg.exe'));
+
+// Optional: If you need ffprobe
+ffmpeg.setFfprobePath(path.join(__dirname, 'ffmpeg', 'ffprobe.exe'));
 
 // Middleware
 app.use(cors());
@@ -22,6 +31,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/sneeps', sneepRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
