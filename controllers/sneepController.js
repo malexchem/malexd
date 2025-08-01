@@ -15,7 +15,7 @@ const BUNNY_CONFIG = {
   storageZone: 'mizzo',
   apiKey: process.env.BUNNY_API_KEY,
   storageHost: 'jh.storage.bunnycdn.com',
-  pullZone: 'https://mizzo.b-cdn.net'
+  pullZone: 'mizzo.b-cdn.net'
 };
 
 
