@@ -7,14 +7,22 @@ const authRoutes = require('./routes/auth');
 const sneepRoutes = require('./routes/sneep');
 const app = express();
 
-const ffmpeg = require('fluent-ffmpeg');
+/*const ffmpeg = require('fluent-ffmpeg');
 const path = require('path');
 
 // Set the path to ffmpeg.exe
 ffmpeg.setFfmpegPath(path.join(__dirname, 'ffmpeg', 'ffmpeg.exe'));
 
 // Optional: If you need ffprobe
-ffmpeg.setFfprobePath(path.join(__dirname, 'ffmpeg', 'ffprobe.exe'));
+ffmpeg.setFfprobePath(path.join(__dirname, 'ffmpeg', 'ffprobe.exe'));*/
+
+const ffmpeg = require('fluent-ffmpeg');
+const ffmpegPath = require('ffmpeg-static');
+const ffprobePath = require('ffprobe-static').path;
+
+ffmpeg.setFfmpegPath(ffmpegPath);
+ffmpeg.setFfprobePath(ffprobePath);
+
 
 // Middleware
 app.use(cors());
