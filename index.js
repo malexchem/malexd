@@ -5,7 +5,11 @@ const cors = require('cors');
 const morgan = require('morgan');
 const authRoutes = require('./routes/auth');
 const sneepRoutes = require('./routes/sneep');
+const otpRoutes = require('./routes/otp');
 const app = express();
+const channelRoutes = require('./routes/channel');
+const channelDetailRoutes = require('./routes/channelDetail');
+
 
 /*const ffmpeg = require('fluent-ffmpeg');
 const path = require('path');
@@ -40,6 +44,9 @@ mongoose.connect(process.env.MONGODB_URI, {
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/sneeps', sneepRoutes);
+app.use('/api/otp', otpRoutes);
+app.use('/api/channels', channelRoutes);
+app.use('/api/channels', channelDetailRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
